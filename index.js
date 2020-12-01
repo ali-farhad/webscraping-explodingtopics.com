@@ -14,7 +14,10 @@ const Sheet = require('./sheet');
         const active = $(c);
         const keyword = active.find('.tileKeyword').text();
         const description = active.find('.tileDescription').text();
-        const searches = active.find('.scoreTag').text();
+        let searches = active.find('.scoreTagItem').text().split(" ")[0].slice(0, -1);
+        if (searches.length === 0) {
+            searches = "0";
+        }
 
         return { keyword, description, searches };
     })
